@@ -12,6 +12,7 @@ import 'package:recipe/shared/styles/icon_broken.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 import '../modules/meal/meal_screen.dart';
+import '../modules/splash/splash_screen.dart';
 import '../shared/components/components.dart';
 import '../shared/components/constants.dart';
 
