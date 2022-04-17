@@ -10,7 +10,6 @@ import 'package:recipe/shared/cubit/states.dart';
 import 'package:recipe/shared/network/local/cache_helper.dart';
 import 'package:recipe/shared/network/remote/dio_helper.dart';
 import 'package:recipe/shared/styles/colors.dart';
-import 'package:recipe/shared/styles/themes.dart';
 
 import 'modules/onboarding/onboarding_screen.dart';
 import 'shared/components/constants.dart';
