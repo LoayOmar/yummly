@@ -15,7 +15,7 @@ Widget defaultButton({
   double elevation = 10,
   Color? background,
   double radius = 10.0,
-  double textSize = 16.0,
+  double textSize = 12.0,
   required var function,
   required String text,
   Color textColor = Colors.black,
@@ -384,7 +384,7 @@ Widget buildHeaderCard({
                         style: Theme.of(context)
                             .textTheme
                             .bodyText1!
-                            .copyWith(fontSize: 24, color: Colors.white),
+                            .copyWith(fontSize: 16, color: Colors.white),
                       ),
                     ],
                   ),
@@ -401,7 +401,7 @@ Widget buildHeaderCard({
                     style: Theme.of(context)
                         .textTheme
                         .bodyText1!
-                        .copyWith(color: defaultColor),
+                        .copyWith(color: defaultColor, fontSize: 12),
                   ),
                 ),
               ),

@@ -10,37 +10,25 @@ class CategoriesModel {
 class Meals {
   String? strCategory;
   String? image;
+  Map<String, String> categoryImage = {
+    'Beef' : 'assets/images/categories/beef.webp',
+    'Breakfast' : 'assets/images/categories/breakfast.webp',
+    'Chicken' : 'assets/images/categories/chicken.jpg',
+    'Dessert' : 'assets/images/categories/dessert.webp',
+    'Goat' : 'assets/images/categories/goat.jpg',
+    'Lamb' : 'assets/images/categories/lamb.webp',
+    'Miscellaneous' : 'assets/images/categories/miscellaneous.jpg',
+    'Pasta' : 'assets/images/categories/pasta.webp',
+    'Pork' : 'assets/images/categories/pork.jpg',
+    'Seafood' : 'assets/images/categories/seafood.jpg',
+    'Side' : 'assets/images/categories/side.jpg',
+    'Starter' : 'assets/images/categories/starter.jpg',
+    'Vegan' : 'assets/images/categories/vegan.jpg',
+    'Vegetarian' : 'assets/images/categories/vegetarian.webp',
+  };
 
   Meals.fromJson(Map<String, dynamic> json){
     strCategory = json['strCategory'];
-    if(strCategory == 'Beef') {
-      image = 'assets/images/categories/beef.webp';
-    } else if(strCategory == 'Breakfast') {
-      image = 'assets/images/categories/breakfast.webp';
-    } else if(strCategory == 'Chicken') {
-      image = 'assets/images/categories/chicken.jpg';
-    } else if(strCategory == 'Dessert') {
-      image = 'assets/images/categories/dessert.webp';
-    } else if(strCategory == 'Goat') {
-      image = 'assets/images/categories/goat.jpg';
-    } else if(strCategory == 'Lamb') {
-      image = 'assets/images/categories/lamb.webp';
-    } else if(strCategory == 'Miscellaneous') {
-      image = 'assets/images/categories/miscellaneous.jpg';
-    } else if(strCategory == 'Pasta') {
-      image = 'assets/images/categories/pasta.webp';
-    } else if(strCategory == 'Pork') {
-      image = 'assets/images/categories/pork.jpg';
-    } else if(strCategory == 'Seafood') {
-      image = 'assets/images/categories/seafood.jpg';
-    } else if(strCategory == 'Side') {
-      image = 'assets/images/categories/side.jpg';
-    } else if(strCategory == 'Starter') {
-      image = 'assets/images/categories/starter.jpg';
-    } else if(strCategory == 'Vegan') {
-      image = 'assets/images/categories/vegan.jpg';
-    } else if(strCategory == 'Vegetarian') {
-      image = 'assets/images/categories/vegetarian.webp';
-    }
+    image = categoryImage[json['strCategory']];
   }
 }
