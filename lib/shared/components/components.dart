@@ -39,7 +39,7 @@ Widget defaultButton({
           onPressed: function,
           child: Text(
             text,
-            style: Theme.of(context).textTheme.bodyText1?.copyWith(
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: textColor,
                   fontSize: textSize,
                 ),
@@ -108,7 +108,7 @@ void navigateTo(context, widget) => Navigator.push(
       PageTransition(
         type: PageTransitionType.fade,
         alignment: Alignment.center,
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         child: widget,
       ),
     );
@@ -118,7 +118,7 @@ void navigateAndFinish(context, widget) => Navigator.pushAndRemoveUntil(
       PageTransition(
         type: PageTransitionType.fade,
         alignment: Alignment.center,
-        duration: Duration(seconds: 1),
+        duration: const Duration(seconds: 1),
         child: widget,
       ),
       (route) => false,
@@ -161,7 +161,7 @@ Widget buildLayOutCard({
                   alignment: Alignment.center,
                   child: Text(
                     text,
-                    style: Theme.of(context).textTheme.headline1,
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
                 ),
               ),
@@ -241,7 +241,7 @@ Widget buildMealCard({
                           alignment: Alignment.centerLeft,
                           child: Text(
                             meal,
-                            style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black),
+                            style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black),
                             softWrap: true,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -328,7 +328,7 @@ Widget buildMealPicCard({
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Text(
                     meal,
-                    style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                           fontSize: 25,
                       color: Colors.black,
                         ),
@@ -352,7 +352,7 @@ Widget buildHeaderCard({
 }) =>
     Card(
       elevation: 5,
-      child: Container(
+      child: SizedBox(
         width: MediaQuery.of(context).size.width,
         height: 50,
         child: Row(
@@ -383,7 +383,7 @@ Widget buildHeaderCard({
                         title,
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1!
+                            .bodyLarge!
                             .copyWith(fontSize: 16, color: Colors.white),
                       ),
                     ],
@@ -400,7 +400,7 @@ Widget buildHeaderCard({
                     subTitle,
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText1!
+                        .bodyLarge!
                         .copyWith(color: defaultColor, fontSize: 12),
                   ),
                 ),
@@ -430,9 +430,9 @@ Widget buildMealItem({
         CacheHelper.saveData(key: mealName, value: cubit.ingredientsList);
       } else {
         List ls = CacheHelper.getData(key: mealName);
-        ls.forEach((element) {
+        for (var element in ls) {
           cubit.addToIngredientsList(element.toString());
-        });
+        }
       }
       return ListView.separated(
         shrinkWrap: true,
@@ -476,7 +476,7 @@ Widget buildMealItem({
                       Expanded(
                         child: Text(
                           '${texts[index]}.',
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style: Theme.of(context).textTheme.bodyLarge,
                           softWrap: true,
                         ),
                       ),
@@ -484,7 +484,7 @@ Widget buildMealItem({
                   )
                 : Text(
                     '${texts[index]}${texts[index].isNotEmpty ? '.' : ''}',
-                    style: Theme.of(context).textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyLarge,
                     softWrap: true,
                     textAlign: TextAlign.justify,
                   ),
@@ -502,7 +502,7 @@ void showToast({
   required ToastStates state,
 }) {
   Fluttertoast.showToast(
-      msg: '${text}',
+      msg: text,
       toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.BOTTOM,
       timeInSecForIosWeb: 5,
@@ -559,7 +559,7 @@ Widget buildDrawerItem({
                   title,
                   style: Theme.of(context)
                       .textTheme
-                      .bodyText1!
+                      .bodyLarge!
                       .copyWith(color: Colors.white),
                 ),
               ],

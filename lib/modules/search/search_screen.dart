@@ -4,7 +4,6 @@ import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 import 'package:recipe/shared/components/components.dart';
 import 'package:recipe/shared/cubit/cubit.dart';
 import 'package:recipe/shared/cubit/states.dart';
-import 'package:recipe/shared/styles/icon_broken.dart';
 
 import '../../shared/components/constants.dart';
 import '../../shared/styles/colors.dart';
@@ -13,6 +12,8 @@ import '../meal/meal_screen.dart';
 class SearchScreen extends StatelessWidget {
   final FloatingSearchBarController floatingSearchBarController =
       FloatingSearchBarController();
+
+  SearchScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +54,11 @@ class SearchScreen extends StatelessWidget {
               },
               body: cubit.searchModel == null ? Center(
                 child: Text('Search For Meal',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ) : Container(),
               onSubmitted: (value) {},
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               height: 50,
               hint: 'Search',
               hintStyle: const TextStyle(fontSize: 20),
@@ -70,7 +71,7 @@ class SearchScreen extends StatelessWidget {
                     elevation: 4.0,
                     child: cubit.searchModel != null? ListView.separated(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
+                      physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) => buildMealCard(
                         context: context,
                         image: cubit.searchModel!.meals[index].strMealThumb!,

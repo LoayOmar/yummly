@@ -11,7 +11,7 @@ import '../../shared/styles/icon_broken.dart';
 class DailyMealScreen extends StatelessWidget {
   final DailyDataModel dailyDataModel;
 
-  DailyMealScreen(this.dailyDataModel);
+  const DailyMealScreen(this.dailyDataModel, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,23 +20,23 @@ class DailyMealScreen extends StatelessWidget {
       builder: (context, state) {
         var cubit = RecipesCubit.get(context);
         int stepsLen = 0;
-        dailyDataModel.analyzedInstructions.forEach((element) {
+        for (var element in dailyDataModel.analyzedInstructions) {
           stepsLen += element.steps.length;
-        });
+        }
         List<String> instructions = [];
-        dailyDataModel.analyzedInstructions.forEach((element) {
+        for (var element in dailyDataModel.analyzedInstructions) {
           if(element.name!.isNotEmpty){
             instructions.add(element.name!);
           }
-          element.steps.forEach((ele) {
+          for (var ele in element.steps) {
             instructions.add(ele.step!);
-          });
-        });
+          }
+        }
 
         List<String> ingredients = [];
-        dailyDataModel.extendedIngredients.forEach((element) {
+        for (var element in dailyDataModel.extendedIngredients) {
           ingredients.add(element.original!);
-        });
+        }
 
         cubit.clearIngredientsList();
         if (CacheHelper.getData(key: dailyDataModel.title!) == null) {
@@ -46,9 +46,9 @@ class DailyMealScreen extends StatelessWidget {
           CacheHelper.saveData(key: dailyDataModel.title!, value: cubit.ingredientsList);
         } else {
           List ls = CacheHelper.getData(key: dailyDataModel.title!);
-          ls.forEach((element) {
+          for (var element in ls) {
             cubit.addToIngredientsList(element.toString());
-          });
+          }
         }
 
         return Scaffold(
@@ -89,12 +89,12 @@ class DailyMealScreen extends StatelessWidget {
                     if(dailyDataModel.preparationMinutes! != 'null')
                     Text(
                       '- Preparation Time : ${dailyDataModel.preparationMinutes!} Minutes',
-                      style: Theme.of(context).textTheme.bodyText1,
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                     if(dailyDataModel.cookingMinutes! != 'null')
                     Text(
                       '- Cooking Time : ${dailyDataModel.cookingMinutes!} Minutes',
-                      style: Theme.of(context).textTheme.bodyText1,
+                      style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   ],
                 ),

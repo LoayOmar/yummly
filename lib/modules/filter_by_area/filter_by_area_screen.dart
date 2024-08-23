@@ -5,14 +5,13 @@ import 'package:recipe/shared/cubit/cubit.dart';
 import 'package:recipe/shared/cubit/states.dart';
 import 'package:recipe/shared/styles/colors.dart';
 
-import '../meal/meal_screen.dart';
 
 class FilterByAreaScreen extends StatelessWidget {
   final String title;
 
-  FilterByAreaScreen({
+  const FilterByAreaScreen({Key? key,
     required this.title,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

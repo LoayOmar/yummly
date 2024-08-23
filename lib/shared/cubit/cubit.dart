@@ -50,8 +50,8 @@ class RecipesCubit extends Cubit<RecipesStates> {
   ];
 
   List<Widget> screens = [
-    HomeScreen(),
-    FavouriteScreen(),
+    const HomeScreen(),
+    const FavouriteScreen(),
     ShoppingScreen(),
   ];
 
@@ -371,10 +371,10 @@ class RecipesCubit extends Cubit<RecipesStates> {
     if (CacheHelper.getData(key: 'favourite') != null) {
       list = CacheHelper.getData(key: 'favourite');
     }
-    list.forEach((element) {
+    for (var element in list) {
       favourites.add(element.toString());
       getFavouriteMealsData(element.toString());
-    });
+    }
     emit(RecipesGetFavouriteState());
   }
 
@@ -493,7 +493,7 @@ class RecipesCubit extends Cubit<RecipesStates> {
       List list = CacheHelper.getData(key: 'shoppingList');
       bool isMeal = false;
       String? mealId;
-      list.forEach((element) {
+      for (var element in list) {
         if (element.toString() == 'mealName') {
           isMeal = true;
         }
@@ -505,7 +505,7 @@ class RecipesCubit extends Cubit<RecipesStates> {
         if (!isMeal && element.toString() != mealId) {
           shoppingItems[mealId]!.add(element.toString());
         }
-      });
+      }
     }
     emit(RecipesGetShoppingState());
   }
@@ -515,9 +515,9 @@ class RecipesCubit extends Cubit<RecipesStates> {
     shoppingItems.forEach((key, value) {
       list.add('mealName');
       list.add(key);
-      value.forEach((element) {
+      for (var element in value) {
         list.add(element.toString());
-      });
+      }
     });
     CacheHelper.removeData(key: 'shoppingList');
     CacheHelper.saveData(key: 'shoppingList', value: list);
@@ -722,10 +722,10 @@ class RecipesCubit extends Cubit<RecipesStates> {
     dailyDataModelList = [];
     if(CacheHelper.getData(key: 'dailyMeals') != null){
       List list = CacheHelper.getData(key: 'dailyMeals');
-      list.forEach((element) {
+      for (var element in list) {
         getDailyMealsData(int.parse(element));
         print(element);
-      });
+      }
     }
   }
 
@@ -738,10 +738,10 @@ class RecipesCubit extends Cubit<RecipesStates> {
     if (CacheHelper.getData(key: 'favouritesDailyMeals') != null) {
       list = CacheHelper.getData(key: 'favouritesDailyMeals');
     }
-    list.forEach((element) {
+    for (var element in list) {
       favouritesDailyMeals.add(element.toString());
       getFavouriteDailyMealsData(element.toString());
-    });
+    }
     print(list);
     emit(RecipesGetFavouriteState());
   }

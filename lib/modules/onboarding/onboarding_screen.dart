@@ -4,6 +4,8 @@ import 'package:recipe/layout/recipe_layout.dart';
 import 'package:recipe/shared/components/components.dart';
 
 class OnBoardingScreen extends StatelessWidget {
+  const OnBoardingScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     bool switcher = false;

@@ -1,18 +1,15 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe/modules/daily/daily_screen.dart';
 import 'package:recipe/modules/randoms/randoms_screen.dart';
 import 'package:recipe/shared/cubit/cubit.dart';
 import 'package:recipe/shared/cubit/states.dart';
-import 'package:recipe/shared/network/local/cache_helper.dart';
 import 'package:recipe/shared/styles/colors.dart';
 import 'package:recipe/shared/styles/icon_broken.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 import '../modules/meal/meal_screen.dart';
-import '../modules/splash/splash_screen.dart';
 import '../shared/components/components.dart';
 import '../shared/components/constants.dart';
 
@@ -20,6 +17,8 @@ class RecipeLayOut extends StatelessWidget {
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController answerController = TextEditingController();
   TextEditingController caloriesController = TextEditingController();
+
+  RecipeLayOut({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class RecipeLayOut extends StatelessWidget {
                   children: [
                     Align(
                       alignment: Alignment.topCenter,
-                      child: Container(
+                      child: SizedBox(
                         height: 50,
                         width: 50,
                         child: Image(
@@ -52,13 +51,13 @@ class RecipeLayOut extends StatelessWidget {
                     Text(
                       RecipesCubit.get(context).answerModel!.answer!,
                       softWrap: true,
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black),
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black),
                     ),
                     const SizedBox(height: 10,),
                     Text(
                       'Type : ${RecipesCubit.get(context).answerModel!.type!}',
                       softWrap: true,
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black),
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black),
                     ),
                     const SizedBox(
                       height: 10,
@@ -83,10 +82,10 @@ class RecipeLayOut extends StatelessWidget {
           ).show();
         }
         if(state is RecipesSuccessGetDailyDataState){
-          RecipesCubit.get(context).dailyModel!.meals.forEach((element) {
+          for (var element in RecipesCubit.get(context).dailyModel!.meals) {
             RecipesCubit.get(context).getDailyMealsData(element.id!);
-          });
-          navigateTo(context, DailyScreen());
+          }
+          navigateTo(context, const DailyScreen());
         }
       },
       builder: (context, state) {
@@ -310,7 +309,7 @@ class RecipeLayOut extends StatelessWidget {
                                         Expanded(
                                         child: defaultButton(
                                           function: () {
-                                            navigateTo(context, DailyScreen());
+                                            navigateTo(context, const DailyScreen());
                                           },
                                           text: 'Last Plan',
                                           context: context,

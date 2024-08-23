@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe/shared/components/components.dart';
 import 'package:recipe/shared/cubit/cubit.dart';
 import 'package:recipe/shared/cubit/states.dart';
-import 'package:recipe/shared/network/local/cache_helper.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 
@@ -14,10 +13,12 @@ class MealScreen extends StatelessWidget {
   YoutubePlayerController? _controller;
   YoutubeMetaData? _videoMetaData;
 
-  bool _isPlayerReady = false;
+  final bool _isPlayerReady = false;
   PlayerState? _playerState;
 
   var videoId;
+
+  MealScreen({Key? key}) : super(key: key);
 
   void listener() {
     if(_isPlayerReady && !_controller!.value.isFullScreen){

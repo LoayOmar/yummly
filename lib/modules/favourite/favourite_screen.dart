@@ -4,7 +4,6 @@ import 'package:recipe/shared/components/components.dart';
 import 'package:recipe/shared/cubit/cubit.dart';
 import 'package:recipe/shared/cubit/states.dart';
 
-import '../../shared/styles/colors.dart';
 import '../daily_meal/daily_meal_screen.dart';
 import '../meal/meal_screen.dart';
 

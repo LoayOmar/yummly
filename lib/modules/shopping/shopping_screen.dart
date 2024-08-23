@@ -12,6 +12,8 @@ import '../../shared/styles/icon_broken.dart';
 class ShoppingScreen extends StatelessWidget {
   TextEditingController itemController = TextEditingController();
 
+  ShoppingScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RecipesCubit, RecipesStates>(
@@ -24,9 +26,9 @@ class ShoppingScreen extends StatelessWidget {
         cubit.shoppingItems.forEach((key, value) {
           List<String> list = [];
           mealName.add(key);
-          value.forEach((element) {
+          for (var element in value) {
             list.add(element.toString());
-          });
+          }
           items.add(list);
         });
 
@@ -45,11 +47,11 @@ class ShoppingScreen extends StatelessWidget {
                       children: [
                         Text(
                           mealName[index],
-                          style: Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black),
+                          style: Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black),
                         ),
                         ListView.separated(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemBuilder: (context, idx) {
                             return Row(
                               children: [
@@ -88,7 +90,7 @@ class ShoppingScreen extends StatelessWidget {
                                     child: Text(
                                       items[index][idx],
                                       style:
-                                          Theme.of(context).textTheme.bodyText1!.copyWith(color: Colors.black),
+                                          Theme.of(context).textTheme.bodyLarge!.copyWith(color: Colors.black),
                                       softWrap: true,
                                     ),
                                   ),
@@ -128,7 +130,7 @@ class ShoppingScreen extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Container(
+                        SizedBox(
                           height: 50,
                           child: Align(
                             alignment: Alignment.centerRight,

@@ -7,6 +7,8 @@ import 'package:recipe/shared/cubit/states.dart';
 import '../../shared/styles/colors.dart';
 
 class LatestScreen extends StatelessWidget {
+  const LatestScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RecipesCubit, RecipesStates>(

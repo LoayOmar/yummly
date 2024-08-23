@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipe/http_overrides.dart';
@@ -58,16 +57,16 @@ class MyApp extends StatelessWidget {
               elevation: 20,
             ),
             textTheme: TextTheme(
-              bodyText1: const TextStyle(
+              bodyLarge: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
-              headline1: TextStyle(
+              headlineLarge: TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
                 color: Colors.orange.shade50,
               ),
-              subtitle1: const TextStyle(
+              labelLarge: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
@@ -78,7 +77,7 @@ class MyApp extends StatelessWidget {
           ),
           darkTheme: ThemeData(
             scaffoldBackgroundColor: Colors.black,
-            drawerTheme: DrawerThemeData(
+            drawerTheme: const DrawerThemeData(
               backgroundColor: Colors.black54,
             ),
             primarySwatch: defaultColor,
@@ -90,17 +89,17 @@ class MyApp extends StatelessWidget {
               elevation: 20,
             ),
             textTheme: TextTheme(
-              bodyText1: const TextStyle(
+              bodyLarge: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
               ),
-              headline1: TextStyle(
+              headlineLarge: TextStyle(
                 fontSize: 35,
                 fontWeight: FontWeight.bold,
                 color: Colors.orange.shade50,
               ),
-              subtitle1: const TextStyle(
+              labelLarge: const TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
