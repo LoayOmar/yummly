@@ -8,7 +8,6 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool switcher = false;
     return SafeArea(
       child: Scaffold(
         body: Container(
