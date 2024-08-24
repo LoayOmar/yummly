@@ -27,7 +27,7 @@ class RecipeLayOut extends StatelessWidget {
         if(state is RecipesSuccessGetAnswerDataState){
           AwesomeDialog(
               context: context,
-              dialogType: DialogType.NO_HEADER,
+              dialogType: DialogType.noHeader,
               dismissOnTouchOutside: false,
               body: Padding(
                 padding: const EdgeInsets.all(15),
@@ -150,7 +150,7 @@ class RecipeLayOut extends StatelessWidget {
                     function: () {
                       AwesomeDialog(
                         context: context,
-                        dialogType: DialogType.NO_HEADER,
+                        dialogType: DialogType.noHeader,
                         body: Column(
                           children: [
                             ColorPicker(
@@ -221,7 +221,7 @@ class RecipeLayOut extends StatelessWidget {
                     function: () {
                       AwesomeDialog(
                         context: context,
-                        dialogType: DialogType.NO_HEADER,
+                        dialogType: DialogType.noHeader,
                         body: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
                           child: Column(
@@ -286,7 +286,7 @@ class RecipeLayOut extends StatelessWidget {
                     function: () {
                       AwesomeDialog(
                         context: context,
-                        dialogType: DialogType.NO_HEADER,
+                        dialogType: DialogType.noHeader,
                         body: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Column(

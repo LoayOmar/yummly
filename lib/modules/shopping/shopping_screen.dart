@@ -113,7 +113,7 @@ class ShoppingScreen extends StatelessWidget {
             onPressed: () {
               AwesomeDialog(
                   context: context,
-                  dialogType: DialogType.NO_HEADER,
+                  dialogType: DialogType.noHeader,
                   body: Padding(
                     padding:
                         const EdgeInsets.only(left: 20, right: 20, bottom: 20),

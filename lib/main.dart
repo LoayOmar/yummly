@@ -74,6 +74,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
             fontFamily: 'Jannah',
+            useMaterial3: true,
           ),
           darkTheme: ThemeData(
             scaffoldBackgroundColor: Colors.black,
@@ -107,6 +108,7 @@ class MyApp extends StatelessWidget {
               ),
             ),
             fontFamily: 'Jannah',
+            useMaterial3: true,
           ),
           themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
           home: OnBoardingScreen(),

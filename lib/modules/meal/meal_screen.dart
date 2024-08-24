@@ -33,7 +33,7 @@ class MealScreen extends StatelessWidget {
       listener: (context, state) {
         if(state is RecipesSuccessGetMealDetailsState || state is RecipesSuccessGetRandomMealState){
           _controller = YoutubePlayerController(
-            initialVideoId: videoId = YoutubePlayer.convertUrlToId(RecipesCubit.get(context).mealModel!.meals[0].strYoutube!)!,
+            initialVideoId: videoId = YoutubePlayer.convertUrlToId(RecipesCubit.get(context).mealModel!.meals[0].strYoutube!)?? '',
             flags: const YoutubePlayerFlags(
               mute: false,
               autoPlay: false,

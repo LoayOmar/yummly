@@ -181,6 +181,7 @@ AppBar defaultAppBar({
         style: const TextStyle(
             fontWeight: FontWeight.bold, color: Colors.white, fontSize: 25),
       ),
+      backgroundColor: defaultColor,
       actions: [
         IconButton(
           onPressed: () {
